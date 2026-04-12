@@ -1,14 +1,14 @@
 {
   "name": "pokemon-site",
   "version": "1.0.0",
-  "description": "Site Pokémon com Node.js - padrão MVC",
+  "description": "Site Pokémon com Node.js",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": ["pokemon", "nodejs", "express", "mvc"],
-  "author": "Seu Nome",
+  "author": "Thais",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",

@@ -1,7 +1,4 @@
-// CONTROLLER - PokemonController.js
-// Responsável pela lógica da página de Pokémons (Pokédex)
-
-const PokemonModel = require('../models/Pokemon');
+const Pokemon = require('../models/Pokemon');
 
 function index(req, res) {
   const pokemons = Pokemon.getAll();

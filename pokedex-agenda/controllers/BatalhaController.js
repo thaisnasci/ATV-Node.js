@@ -1,5 +1,4 @@
-
-const BatalhaModel = require('../models/Batalha');
+const Batalha = require('../models/Batalha');
 
 function index(req, res) {
   const batalhas = Batalha.getAll();

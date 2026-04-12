@@ -1,12 +1,9 @@
-// CONTROLLER - TreinadorController.js
-// Responsável pela lógica da página de perfil do treinador
-
-const TreinadorModel = require('../models/Treinador');
+const Treinador = require('../models/Treinador');
 
 function index(req, res) {
   const treinador = Treinador.get();
 
-  res.render('perfil', {
+  res.render('treinador', {
     titulo: 'Perfil do Treinador',
     treinador,
   });

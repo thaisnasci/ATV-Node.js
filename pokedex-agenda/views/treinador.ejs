@@ -1,0 +1,52 @@
+<%- include('partials/header', { titulo: titulo }) %>
+<%- include('partials/navbar', { page: 'perfil' }) %>
+
+<div class="container mt-4">
+
+  <h2 class="titulo-pagina">Treinador Pokémon</h2>
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card-perfil text-center">
+        <img src="/img/ash.png" class="perfil-img" alt="Ash">
+        <h4 class="mt-2"><%= treinador.nome %></h4>
+        <span class="badge bg-danger">Mestre Pokémon</span>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+
+          <h5 class="card-title">Informações do Treinador</h5>
+
+          <table class="table tabela-treinador">
+          <tbody>
+          <tr><th>Nome</th><td><%= treinador.nome %></td></tr>
+          <tr><th>Idade</th><td><%= treinador.idade %> anos</td></tr>
+          <tr><th>Região</th><td><%= treinador.regiao %></td></tr>
+          <tr><th>Insígnias</th><td><%= treinador.insignias %>/8</td></tr>
+         </tbody>
+        </table>
+
+
+          <h6 class="mt-3">Pokémons Favoritos:</h6>
+          <p><%= treinador.pokemonsFavoritos.join(', ') %></p>
+
+          <h6 class="mt-3">Conquistas:</h6>
+          <ul>
+            <% treinador.conquistas.forEach(function(c) { %>
+              <li><%= c %></li>
+            <% }) %>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<%- include('partials/footer') %>

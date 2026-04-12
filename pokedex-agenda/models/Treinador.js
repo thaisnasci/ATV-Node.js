@@ -1,6 +1,3 @@
-// MODEL - TreinadorModel.js
-// Responsável pelos dados do treinador (perfil)
-
 const treinador = {
   nome: 'Ash Ketchum',
   idade: 17,
@@ -16,7 +13,6 @@ const treinador = {
   descricao: 'Treinador Pokémon determinado a se tornar o melhor de todos os tempos. Começou sua jornada aos 10 anos ao lado de seu fiel Pikachu.',
 };
 
-// Retorna os dados do treinador
 function get() {
   return treinador;
 }

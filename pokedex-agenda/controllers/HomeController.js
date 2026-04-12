@@ -1,8 +1,5 @@
-// CONTROLLER - HomeController.js
-// Responsável pela lógica da página inicial
-
-const PokemonModel = require('../models/Pokemon');
-const BatalhaModel = require('../models/Batalha');
+const Pokemon = require('../models/Pokemon');
+const Batalha = require('../models/Batalha');
 
 function index(req, res) {
   const totalPokemons = Pokemon.getAll().length;

@@ -1,59 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title><%= titulo %></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="/css/style.css"/>
-</head>
-<body>
+<%- include('partials/header', { titulo: titulo }) %>
+<%- include('partials/navbar', { page: 'pokedex' }) %>
 
-  <%- include('partials/navbar', { page: 'pokedex' }) %>
+<div class="container mt-4">
 
-  <div class="container mt-4">
+  <h2 class="titulo-pagina">Pokédex</h2>
 
-    <h2 class="titulo-pagina">Pokédex</h2>
-    <p>Lista de Pokémons com seus atributos de batalha.</p>
+  <table class="table table-striped table-bordered">
+    <thead class="table-danger">
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Tipo 1</th>
+        <th>Tipo 2</th>
+        <th>HP</th>
+        <th>Ataque</th>
+        <th>Defesa</th>
+        <th>Velocidade</th>
+        <th>Geração</th>
+      </tr>
+    </thead>
 
-    <table class="table table-striped table-bordered">
-      <thead class="table-danger">
+    <tbody>
+      <% pokemons.forEach(p => { %>
         <tr>
-          <th>#</th>
-          <th>Nome</th>
-          <th>Tipo 1</th>
-          <th>Tipo 2</th>
-          <th>HP</th>
-          <th>Ataque</th>
-          <th>Defesa</th>
-          <th>Velocidade</th>
-          <th>Geração</th>
+          <td>#<%= String(p.id).padStart(3, '0') %></td>
+          <td>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= p.id %>.png" class="pokemon-img">
+            <%= p.nome %>
+          </td>
+          <td><%= p.tipo1 %></td>
+          <td><%= p.tipo2 %></td>
+          <td><%= p.hp %></td>
+          <td><%= p.ataque %></td>
+          <td><%= p.defesa %></td>
+          <td><%= p.velocidade %></td>
+          <td><%= p.geracao %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% pokemons.forEach(function(p) { %>
-          <tr>
-            <td>#<%= String(p.id).padStart(3, '0') %></td>
-            <td>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= p.id %>.png" class="pokemon-img" alt="<%= p.nome %>" />
-              <%= p.nome %>
-            </td>
-            <td><%= p.tipo1 %></td>
-            <td><%= p.tipo2 %></td>
-            <td><%= p.hp %></td>
-            <td><%= p.ataque %></td>
-            <td><%= p.defesa %></td>
-            <td><%= p.velocidade %></td>
-            <td><%= p.geracao %></td>
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
+      <% }) %>
+    </tbody>
+  </table>
 
-      
-  </div>
+</div>
 
-  <%- include('partials/footer') %>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<%- include('partials/footer') %>

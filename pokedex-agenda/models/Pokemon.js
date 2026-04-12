@@ -1,6 +1,3 @@
-// MODEL - PokemonModel.js
-// Responsável pelos dados dos Pokémons
-
 const pokemons = [
   { id: 1,   nome: 'Bulbasaur',   tipo1: 'Planta',   tipo2: 'Veneno',  hp: 45,  ataque: 49,  defesa: 49,  velocidade: 45,  geracao: 1 },
   { id: 4,   nome: 'Charmander',  tipo1: 'Fogo',     tipo2: '-',       hp: 39,  ataque: 52,  defesa: 43,  velocidade: 65,  geracao: 1 },
@@ -12,12 +9,10 @@ const pokemons = [
   { id: 150, nome: 'Mewtwo',      tipo1: 'Psíquico', tipo2: '-',       hp: 106, ataque: 110, defesa: 90,  velocidade: 130, geracao: 1 },
 ];
 
-// Retorna todos os pokémons
 function getAll() {
   return pokemons;
 }
 
-// Retorna um pokémon pelo id
 function getById(id) {
   return pokemons.find(p => p.id === parseInt(id));
 }
