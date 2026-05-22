@@ -1,0 +1,73 @@
+<%- include('../partials/header', { titulo: titulo }) %>
+<%- include('../partials/navbar', { page: 'pokedex' }) %>
+
+<div class="container mt-4" style="max-width:650px">
+  <h2 class="titulo-pagina"><%= titulo %></h2>
+
+  <form method="POST" action="<%= acao === 'criar' ? '/pokemons/new' : '/pokemons/update/' + pokemon.id %>">
+    <% if (acao === 'editar') { %>
+      <input type="hidden" name="id" value="<%= pokemon.id %>">
+    <% } %>
+
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" name="nome" class="form-control" value="<%= pokemon.nome || '' %>" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Nº Pokédex</label>
+        <input type="number" name="numero" class="form-control" value="<%= pokemon.numero || '' %>" min="1" max="1025" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label class="form-label">Tipo 1</label>
+        <select name="tipo1" class="form-select">
+          <% ['Água','Aço','Dragão','Elétrico','Fada','Fantasma','Fogo','Gelo','Inseto','Lutador','Normal','Pedra','Planta','Psíquico','Sombrio','Terra','Veneno','Voador'].forEach(t => { %>
+            <option value="<%= t %>" <%= (pokemon.tipo1 === t) ? 'selected' : '' %>><%= t %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="col mb-3">
+        <label class="form-label">Tipo 2 (opcional)</label>
+        <select name="tipo2" class="form-select">
+          <option value="-" <%= (!pokemon.tipo2 || pokemon.tipo2 === '-') ? 'selected' : '' %>>—</option>
+          <% ['Água','Aço','Dragão','Elétrico','Fada','Fantasma','Fogo','Gelo','Inseto','Lutador','Normal','Pedra','Planta','Psíquico','Sombrio','Terra','Veneno','Voador'].forEach(t => { %>
+            <option value="<%= t %>" <%= (pokemon.tipo2 === t) ? 'selected' : '' %>><%= t %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+    <div class="row g-2 mb-3">
+      <div class="col"><label class="form-label">HP</label><input type="number" name="hp" class="form-control" value="<%= pokemon.hp || '' %>" min="1" required></div>
+      <div class="col"><label class="form-label">Ataque</label><input type="number" name="ataque" class="form-control" value="<%= pokemon.ataque || '' %>" min="1" required></div>
+      <div class="col"><label class="form-label">Defesa</label><input type="number" name="defesa" class="form-control" value="<%= pokemon.defesa || '' %>" min="1" required></div>
+      <div class="col"><label class="form-label">Velocidade</label><input type="number" name="velocidade" class="form-control" value="<%= pokemon.velocidade || '' %>" min="1" required></div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label class="form-label">Geração</label>
+        <select name="geracao" class="form-select">
+          <% [1,2,3,4,5,6,7,8,9].forEach(g => { %>
+            <option value="<%= g %>" <%= (pokemon.geracao == g) ? 'selected' : '' %>>Gen <%= g %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="col mb-3">
+        <label class="form-label">Treinador</label>
+        <select name="treinador_id" class="form-select" required>
+          <option value="">Selecione...</option>
+          <% treinadores.forEach(t => { %>
+            <option value="<%= t.id %>" <%= (pokemon.treinador_id == t.id) ? 'selected' : '' %>><%= t.nome %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-danger"><%= acao === 'criar' ? 'Cadastrar' : 'Salvar' %></button>
+      <a href="/pokedex" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

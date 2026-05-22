@@ -1,20 +1,31 @@
-const treinador = {
-  nome: 'Ash Ketchum',
-  idade: 17,
-  cidade: 'Pallet Town',
-  regiao: 'Kanto',
-  insignias: 8,
-  pokemonsFavoritos: ['Pikachu', 'Charizard', 'Bulbasaur'],
-  conquistas: [
-    'Campeão da Liga de Kanto',
-    'Campeão da Liga de Alola',
-    'Campeão Mundial Pokémon',
-  ],
-  descricao: 'Treinador Pokémon determinado a se tornar o melhor de todos os tempos. Começou sua jornada aos 10 anos ao lado de seu fiel Pikachu.',
-};
+const { DataTypes } = require('sequelize');
+const { connection } = require('../config/sequelize-config');
 
-function get() {
-  return treinador;
-}
+const Treinador = connection.define('treinadores', {
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  idade: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  cidade: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  regiao: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  insignias: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  imagem: {
+    type: DataTypes.STRING,
+    defaultValue: 'ash.png',
+  },
+});
 
-module.exports = { get };
+module.exports = Treinador;

@@ -1,0 +1,33 @@
+<%- include('../partials/header', { titulo: titulo }) %>
+<%- include('../partials/navbar', { page: 'treinadores' }) %>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center titulo-pagina mb-3">
+    <h2 class="mb-0">Treinadores</h2>
+    <a href="/treinadores/novo" class="btn btn-danger">+ Novo Treinador</a>
+  </div>
+
+  <div class="row g-3">
+    <% treinadores.forEach(t => { %>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= t.nome %></h5>
+            <p class="mb-1"><strong>Região:</strong> <%= t.regiao %></p>
+            <p class="mb-1"><strong>Cidade:</strong> <%= t.cidade %></p>
+            <p class="mb-1"><strong>Idade:</strong> <%= t.idade %> anos</p>
+            <p class="mb-3"><strong>Insígnias:</strong> <%= t.insignias %>/8</p>
+            <div class="d-flex gap-2">
+              <a href="/treinadores/ver/<%= t.id %>" class="btn btn-sm btn-outline-danger">Ver</a>
+              <a href="/treinadores/edit/<%= t.id %>" class="btn btn-sm btn-outline-secondary">Editar</a>
+              <a href="/treinadores/delete/<%= t.id %>" class="btn btn-sm btn-outline-dark"
+                 onclick="return confirm('Excluir este treinador?')">Excluir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
