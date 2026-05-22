@@ -34,19 +34,11 @@ CREATE DATABASE pokedex;
 
 ## Como Executar o Projeto
 
-1. Acesse a pasta do projeto:
-
-cd nome-do-projeto
-
-2. Instale as dependências:
+1. Instale as dependências:
 
 npm install
 
-3. Configure o banco MySQL:
-
-CREATE DATABASE pokedex;
-
-4. Execute o projeto:
+2. Execute o projeto:
 
 npm start
 
