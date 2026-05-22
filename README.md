@@ -34,23 +34,19 @@ CREATE DATABASE pokedex;
 
 ## Como Executar o Projeto
 
-1. Clone o repositório:
-
-git clone https://github.com/seu-repositorio.git
-
-2. Acesse a pasta do projeto:
+1. Acesse a pasta do projeto:
 
 cd nome-do-projeto
 
-3. Instale as dependências:
+2. Instale as dependências:
 
 npm install
 
-4. Configure o banco MySQL:
+3. Configure o banco MySQL:
 
 CREATE DATABASE pokedex;
 
-5. Execute o projeto:
+4. Execute o projeto:
 
 npm start
 
