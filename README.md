@@ -28,18 +28,6 @@ Aplicação web desenvolvida com Node.js, Express, Sequelize, MySQL e EJS utiliz
 - CSS3
 - JavaScript
 
-## Arquitetura
-
-O projeto foi desenvolvido utilizando o padrão MVC:
-
-Models: gerenciamento dos dados  
-Views: interface visual com EJS  
-Controllers: regras de negócio e controle das rotas
-
-## Banco de Dados
-
-O sistema utiliza MySQL com Sequelize ORM.
-
 Banco utilizado:
 
 CREATE DATABASE pokedex;
@@ -71,20 +59,6 @@ npm start
 O servidor iniciará em:
 
 http://localhost:8080
-
-## Estrutura do Projeto
-
-config
-controllers
-models
-public
-public/css
-public/img
-routes
-views
-views/partials
-views/treinadores
-app.js
 
 ## Funcionalidades do Sistema
 
